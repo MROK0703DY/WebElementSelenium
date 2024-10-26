@@ -1,0 +1,289 @@
+команда: pytest -s -v
+
+отображение:
+platform win32 -- Python 3.12.0, pytest-8.3.3, pluggy-1.5.0 -- C:\pycharm\PycharmProjects\selenium_library\selenium_library\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\pycharm\PycharmProjects\selenium_library\selenium_library
+collected 4 items
+
+tests/test_mail_one.py::test_sending_mail_1
+
+Вход в систему выполнен
+
+Письмо отправлено
+PASSED
+Выход из системы выполнен
+
+tests/test_mail_one.py::test_sending_mail_2
+
+Вход в систему выполнен
+
+Уведомление отправлено
+PASSED
+Выход из системы выполнен
+
+tests/test_mail_two.py::test_sending_mail_3
+
+Вход в систему выполнен
+
+
+Завершение работы. Не забудьте выключить свет
+Повестка отправлена
+PASSED
+Выход из системы выполнен
+
+tests/test_mail_two.py::test_sending_mail_4
+
+Вход в систему выполнен
+
+
+Завершение работы. Не забудьте выключить свет
+Рассылка благодарственности отправлена
+PASSED
+Выход из системы выполнен
+
+====================================================================
+
+команда: pytest -s
+
+отображение:
+platform win32 -- Python 3.12.0, pytest-8.3.3, pluggy-1.5.0
+rootdir: C:\pycharm\PycharmProjects\selenium_library\selenium_library
+collected 4 items
+
+tests\test_mail_one.py
+
+Вход в систему выполнен
+
+Письмо отправлено
+.
+Выход из системы выполнен
+
+
+Вход в систему выполнен
+
+Уведомление отправлено
+.
+Выход из системы выполнен
+
+tests\test_mail_two.py
+
+Вход в систему выполнен
+
+
+Завершение работы. Не забудьте выключить свет
+Повестка отправлена
+.
+Выход из системы выполнен
+
+
+Вход в систему выполнен
+
+
+Завершение работы. Не забудьте выключить свет
+Рассылка благодарственности отправлена
+.
+Выход из системы выполнен
+
+=====================================================
+
+команда: pytest -v
+
+отображение:
+platform win32 -- Python 3.12.0, pytest-8.3.3, pluggy-1.5.0 -- C:\pycharm\PycharmProjects\selenium_library\selenium_library\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\pycharm\PycharmProjects\selenium_library\selenium_library
+collected 4 items
+
+tests/test_mail_one.py::test_sending_mail_1 PASSED                                                                [ 25%]
+tests/test_mail_one.py::test_sending_mail_2 PASSED                                                                [ 50%]
+tests/test_mail_two.py::test_sending_mail_3 PASSED                                                                [ 75%]
+tests/test_mail_two.py::test_sending_mail_4 PASSED                                                                [100%]
+
+========================================================================================================================
+
+команда: pytest
+
+отображение:
+test session starts
+platform win32 -- Python 3.12.0, pytest-8.3.3, pluggy-1.5.0
+rootdir: C:\pycharm\PycharmProjects\selenium_library\selenium_library
+collected 4 items
+
+tests\test_mail_one.py ..                                                                                        [ 50%]
+tests\test_mail_two.py ..
+
+4 passed in 0/03s
+
+=======================================================================================
+
+Добавлена фикстура:
+
+@pytest.fixture(scope="module")
+def some():
+    """Пояснение"""
+    p()
+    p(f'{n}Начало{n}')
+    yield
+    p()
+    p("Завершение.")
+
+Отображение:
+platform win32 -- Python 3.12.0, pytest-8.3.3, pluggy-1.5.0 -- C:\pycharm\PycharmProjects\selenium_library\selenium_library\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\pycharm\PycharmProjects\selenium_library\selenium_library
+collected 4 items
+
+tests/test_mail_one.py::test_sending_mail_1
+
+Начало
+
+
+
+Вход в систему выполнен
+
+Письмо отправлено
+PASSED
+Выход из системы выполнен
+
+tests/test_mail_one.py::test_sending_mail_2
+
+Вход в систему выполнен
+
+Уведомление отправлено
+PASSED
+Выход из системы выполнен
+
+Завершение.
+
+tests/test_mail_two.py::test_sending_mail_3
+
+Начало
+
+
+
+Вход в систему выполнен
+
+
+Завершение работы. Не забудьте выключить свет
+Повестка отправлена
+PASSED
+Выход из системы выполнен
+
+tests/test_mail_two.py::test_sending_mail_4
+
+Вход в систему выполнен
+
+
+Завершение работы. Не забудьте выключить свет
+Рассылка благодарственности отправлена
+PASSED
+Выход из системы выполнен
+
+Завершение.
+
+Начало     - в начале каждого файла
+Завершение - в конце каждого файла (module)
+
+======================================================================================
+
+Есть параметр cls   - для класса
+параметр function   - для каждой функции
+
+========================================================
+
+Запуск одного файла test_order (из папки tests!)
+
+Команда:  pytest -s -v test_order.py
+
+Отображение:
+platform win32 -- Python 3.12.0, pytest-8.3.3, pluggy-1.5.0 -- C:\pycharm\PycharmProjects\selenium_library\selenium_library\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\pycharm\PycharmProjects\selenium_library\selenium_library\tests
+collected 6 items
+
+test_order.py::test_method_1 test_method_1
+PASSED
+test_order.py::test_method_2 test_method_2
+PASSED
+test_order.py::test_method_3 test_method_3
+PASSED
+test_order.py::test_method_4 test_method_4
+PASSED
+test_order.py::test_method_5 test_method_5
+PASSED
+test_order.py::test_method_6 test_method_6
+PASSED
+
+====================================================================
+
+При применении декоратора марк ран
+
+platform win32 -- Python 3.12.0, pytest-8.3.3, pluggy-1.5.0 -- C:\pycharm\PycharmProjects\selenium_library\selenium_library\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\pycharm\PycharmProjects\selenium_library\selenium_library\tests
+plugins: ordering-0.6
+collected 6 items
+
+test_order.py::test_method_4 PASSED                                                                               [ 16%]
+test_order.py::test_method_5 PASSED                                                                               [ 33%]
+test_order.py::test_method_2 PASSED                                                                               [ 50%]
+test_order.py::test_method_6 PASSED                                                                               [ 66%]
+test_order.py::test_method_3 PASSED                                                                               [ 83%]
+test_order.py::test_method_1 PASSED                                                                               [100%]
+
+========================================================================================================================
+
+collected 6 items
+
+test_order.py::test_method_4
+
+Вход в систему выполнен
+
+test_method_4
+PASSED
+Выход из системы выполнен
+
+test_order.py::test_method_5
+
+Вход в систему выполнен
+
+test_method_5
+PASSED
+Выход из системы выполнен
+
+test_order.py::test_method_2
+
+Вход в систему выполнен
+
+test_method_2
+PASSED
+Выход из системы выполнен
+
+test_order.py::test_method_6
+
+Вход в систему выполнен
+
+test_method_6
+PASSED
+Выход из системы выполнен
+
+test_order.py::test_method_3
+
+Вход в систему выполнен
+
+test_method_3
+PASSED
+Выход из системы выполнен
+
+test_order.py::test_method_1
+
+Вход в систему выполнен
+
+test_method_1
+PASSED
+Выход из системы выполнен
+
+
+
+
