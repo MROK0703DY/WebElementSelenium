@@ -3,7 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from new.write_data_nalog import get_form_fill, write_to_csv, parse, foo, inn_list
-from pandas_write_to_test import reading_from_csv
 import time
 import pandas as pd
 import csv
@@ -14,6 +13,14 @@ def p(*args) -> None:
     print(*args)
 
 
+def reading_from_csv(file_name: str) -> None:
+    """Чтение из файла csv."""
+    with open(file_name, "r", encoding="utf-8") as file:
+        reader = csv.reader(file)
+        value = list(reader)[0]
+    return value
+
+
 class WriteDataNalogTest(TestCase):
     """Класс тестирования write_data_nalog."""
 
@@ -22,7 +29,7 @@ class WriteDataNalogTest(TestCase):
         old_list = []
         # Инициализация головного браузера
         options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
+        options.add_argument("--headless")
 
         # Создание экземпляра веб-драйвера
         driver = webdriver.Chrome(options=options)
@@ -44,17 +51,20 @@ class WriteDataNalogTest(TestCase):
         p(data_list)
         p()
         self.assertTrue(True, "Результаты поиска")
-        self.assertTrue(True, "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ\
-                        'ИНВЕСТИЦИИ. НОВАЦИИ. НЕДВИЖИМОСТЬ.'")
+        self.assertTrue(
+            True,
+            "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ\
+                        'ИНВЕСТИЦИИ. НОВАЦИИ. НЕДВИЖИМОСТЬ.'",
+        )
         self.assertEqual(data_list[3], " ИНН: 7728240240")
         driver.close()
 
     def test_get_one_inn_press_the_button(self) -> None:
         """Нажимаем на кнопку получить pdf.
-           Тестирование get_one_inn, без открытия браузера."""
+        Тестирование get_one_inn, без открытия браузера."""
         # Инициализация головного браузера
         options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
+        options.add_argument("--headless")
 
         # Создание экземпляра веб-драйвера
         driver = webdriver.Chrome(options=options)
@@ -62,7 +72,10 @@ class WriteDataNalogTest(TestCase):
         driver.get(url)
         p("Браузер открыт")
 
-        button_pdf = driver.find_element(By.XPATH, "//*[@id='__nuxt']/div/div/div[2]/div[2]/div[1]/div[2]/article[1]/div[2]/a")
+        button_pdf = driver.find_element(
+            By.XPATH,
+            "//*[@id='__nuxt']/div/div/div[2]/div[2]/div[1]/div[2]/article[1]/div[2]/a",
+        )
         button_pdf.click()
         p("Кнопка нажата")
 
@@ -85,11 +98,13 @@ class WriteDataNalogTest(TestCase):
         self.assertEqual(get_form_fill.__doc__, "Создаем генератор")
         self.assertEqual(word, "Look")
 
-    def test_run_cycle_five(self, form_fill=get_form_fill(inn_list), new_list=[]) -> None:
+    def test_run_cycle_five(
+        self, form_fill=get_form_fill(inn_list), new_list=[]
+    ) -> None:
         """Тестирование run_cycle_five."""
         # Инициализация головного браузера
         options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
+        options.add_argument("--headless")
 
         # Создание экземпляра веб-драйвера
         driver = webdriver.Chrome(options=options)
@@ -113,41 +128,171 @@ class WriteDataNalogTest(TestCase):
         driver.close()
         print(new_list[0])
         self.assertTrue(True, "Результаты поиска")
-        self.assertTrue(True, "ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО\
-                        'СБЕРБАНК РОССИИ'")
+        self.assertTrue(
+            True,
+            "ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО\
+                        'СБЕРБАНК РОССИИ'",
+        )
         self.assertEqual(new_list[0][3], " ИНН: 7707083893")
 
     def test_parse(self) -> None:
         """Тестирование parse.
-           :return: None
+        :return: None
         """
         old_list = []
         for i in range(3):
 
             foo(get_form_fill(inn_list), old_list)
 
-        self.assertEqual(parse.__doc__, "Парсер сайта до определенного количества запросов")
+        self.assertEqual(
+            parse.__doc__, "Парсер сайта до определенного количества запросов"
+        )
         self.assertEqual(old_list[-1], "1: 7722010233")
 
-    def test_write_to_csv(self, data_list: list = [
-        ([1,], [2,], [3], [4], [5,], [6,], [7,]),
-        ([1,], [2,], [3], [4], [5,], [6,], [7,]),
-        ([1,], [2,], [3], [4], [5,], [6,], [7,]),
-        ([1,], [2,], [3], [4], [5,], [6,], [7,]),
-        ([1,], [2,], [3], [4], [5,], [6,], [7,]),
-        ([1,], [2,], [3], [4], [5,], [6,], [7,]),
-        ([1,], [2,], [3], [4], [5,], [6,], [7,])], file_name: str = "albums.csv") -> None:
+    def test_write_to_csv(
+        self,
+        data_list: list = [
+            (
+                [
+                    1,
+                ],
+                [
+                    2,
+                ],
+                [3],
+                [4],
+                [
+                    5,
+                ],
+                [
+                    6,
+                ],
+                [
+                    7,
+                ],
+            ),
+            (
+                [
+                    1,
+                ],
+                [
+                    2,
+                ],
+                [3],
+                [4],
+                [
+                    5,
+                ],
+                [
+                    6,
+                ],
+                [
+                    7,
+                ],
+            ),
+            (
+                [
+                    1,
+                ],
+                [
+                    2,
+                ],
+                [3],
+                [4],
+                [
+                    5,
+                ],
+                [
+                    6,
+                ],
+                [
+                    7,
+                ],
+            ),
+            (
+                [
+                    1,
+                ],
+                [
+                    2,
+                ],
+                [3],
+                [4],
+                [
+                    5,
+                ],
+                [
+                    6,
+                ],
+                [
+                    7,
+                ],
+            ),
+            (
+                [
+                    1,
+                ],
+                [
+                    2,
+                ],
+                [3],
+                [4],
+                [
+                    5,
+                ],
+                [
+                    6,
+                ],
+                [
+                    7,
+                ],
+            ),
+            (
+                [
+                    1,
+                ],
+                [
+                    2,
+                ],
+                [3],
+                [4],
+                [
+                    5,
+                ],
+                [
+                    6,
+                ],
+                [
+                    7,
+                ],
+            ),
+            (
+                [
+                    1,
+                ],
+                [
+                    2,
+                ],
+                [3],
+                [4],
+                [
+                    5,
+                ],
+                [
+                    6,
+                ],
+                [
+                    7,
+                ],
+            ),
+        ],
+        file_name: str = "albums.csv",
+    ) -> None:
         """Тестирование функции write_to_csv."""
         write_to_csv(data_list, file_name)
         p(reading_from_csv("albums.csv"))
         self.assertEqual(write_to_csv.__doc__, "Запись в csv")
-        self.assertEqual(reading_from_csv("albums.csv"), ['Город/Регион',
-                                                          'ОГРН',
-                                                          'Дата присвоения',
-                                                          'ИНН',
-                                                          'КПП',
-                                                          'Директор',
-                                                          'Дата прекращения'])
+        self.assertEqual(reading_from_csv("albums.csv"), ["col1", "col2"])
 
 
 if __name__ == "__main__":

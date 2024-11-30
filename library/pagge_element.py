@@ -5,6 +5,7 @@ from selenium.webdriver.remote.webelement import WebElement
 
 class PageElement:
     """Класс для работы с элементами на странице"""
+
     def __init__(self, driver: WebDriver, locator: Tuple[str, str]):
         """Конструктор класса"""
         self.driver = driver

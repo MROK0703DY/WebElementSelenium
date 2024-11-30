@@ -8,7 +8,7 @@ def run_test() -> None:
     """Функция тестирования, без открытия браузера."""
     # Инициализация головного браузера
     options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
+    options.add_argument("--headless")
 
     # Создание экземпляра веб-драйвера
     driver = webdriver.Chrome(options=options)
@@ -20,10 +20,14 @@ def run_test() -> None:
     elem.send_keys("iphone")
     elem.send_keys(Keys.RETURN)
 
-    add_to_cart = driver.find_element(By.XPATH, '//*[@id="content"]/div[3]/div/div/div[2]/div[2]/button[1]')
+    add_to_cart = driver.find_element(
+        By.XPATH, '//*[@id="content"]/div[3]/div/div/div[2]/div[2]/button[1]'
+    )
     add_to_cart.click()
 
-    shopping_cart_link = driver.find_element(By.XPATH, '//*[@id="top-links"]/ul/li[4]/a')
+    shopping_cart_link = driver.find_element(
+        By.XPATH, '//*[@id="top-links"]/ul/li[4]/a'
+    )
     shopping_cart_link.click()
     assert "product 11" in driver.page_source, "Товар не загружен"
     driver.close()
@@ -33,6 +37,7 @@ def run_test() -> None:
 
 class TrainingOneTest(TestCase):
     """Класс тестирования модуля training_one"""
+
     def test_add_to_cart(self) -> None:
         """Добавление в корзину"""
         run_test()

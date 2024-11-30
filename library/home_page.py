@@ -5,6 +5,7 @@ from page_element import PageElement
 
 class HomePage:
     """Класс для работы со страницами сайта через selenium"""
+
     def __init__(self, driver: WebDriver):
         """Конструктор класса"""
         self.driver = driver
@@ -12,8 +13,9 @@ class HomePage:
             self.driver, (By.CSS_SELECTOR, "button.btn-default")
         )
         self.search_field = PageElement(self.driver, (By.NAME, "search"))
-        self.shopping_cart = PageElement(self.driver, (By.LINK_TEXT,
-                                                       "button.btn-inverse"))
+        self.shopping_cart = PageElement(
+            self.driver, (By.LINK_TEXT, "button.btn-inverse")
+        )
         self.shopping_cart_menu = PageElement(
             self.driver, (By.LINK_TEXT, "button.btn-inverse")
         )
@@ -37,4 +39,3 @@ class HomePage:
     def click_shopping_cart_menu(self) -> None:
         """Нажать на меню корзины"""
         self.shopping_cart_menu.click()
-

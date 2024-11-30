@@ -14,6 +14,7 @@ class SearchPage:
         self.driver.get(
             "https://tutorialsninja.com/demo/index.php?route=product/search"
         )
+        self.driver.maximize_window()
 
     def set_search_query(self, query: str) -> None:
         """Ввести ключевое слово (в шапке сайта)"""

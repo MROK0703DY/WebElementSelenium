@@ -49,7 +49,9 @@ def test_search_page() -> None:
     search_page.set_search_criteria("samsung")
     search_page.click_search_criteria_button()
 
-    assert "Samsung SyncMaster 941BW" in driver.page_source, "Строка поиска\
+    assert (
+        "Samsung SyncMaster 941BW" in driver.page_source
+    ), "Строка поиска\
         не найдена"
     driver.close()
     driver.quit()

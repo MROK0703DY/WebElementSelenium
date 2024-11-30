@@ -66,7 +66,9 @@ class TestPython(object):
         driver = webdriver.Chrome()
         driver.maximize_window()
         driver.get("https://demoqa.com/buttons")
-        btn_duble = driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div/div[2]/div[2]/div[1]/button")
+        btn_duble = driver.find_element(
+            By.XPATH, "/html/body/div[2]/div/div/div/div[2]/div[2]/div[1]/button"
+        )
         # //*[@id="doubleClickBtn"]
 
         action = ActionChains(driver)

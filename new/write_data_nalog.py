@@ -37,8 +37,7 @@ def get_one_inn() -> list:
 
     df = pd.DataFrame(data_list)
     for i in range(2):
-        df.to_csv("one_nalog.csv", index=False, encoding="utf-8", mode="a",
-                  sep=",")
+        df.to_csv("one_nalog.csv", index=False, encoding="utf-8", mode="a", sep=",")
     p("Файл записан")
     p()
     pp(item.text)
@@ -61,11 +60,27 @@ def get_form_fill(storage_list: list) -> object:
         yield item
 
 
-inn_list = ["7707083893", "7722010233", "3019000955", "1619001435",
-            "6730038826", "3827057400", "7825417221", "4205198180",
-            "6670493271", "7810531490", "7203501069", "7451436096",
-            "6670493137", "4909130290", "7453254158", "7451436096",
-            "7203342267", "7456009370", "5038054357"]
+inn_list = [
+    "7707083893",
+    "7722010233",
+    "3019000955",
+    "1619001435",
+    "6730038826",
+    "3827057400",
+    "7825417221",
+    "4205198180",
+    "6670493271",
+    "7810531490",
+    "7203501069",
+    "7451436096",
+    "6670493137",
+    "4909130290",
+    "7453254158",
+    "7451436096",
+    "7203342267",
+    "7456009370",
+    "5038054357",
+]
 a_count = len(inn_list)
 form_fill = get_form_fill(inn_list)
 
@@ -146,7 +161,7 @@ def sorting(form_fill: object) -> list:
 
 
 def run_cycle_five(form_fill: object, new_list: list) -> list:
-    """ 5 запросов в цикле """
+    """5 запросов в цикле"""
     browser = webdriver.Chrome()
     browser.maximize_window()
     browser.get("https://egrul.nalog.ru/index.html")
@@ -192,18 +207,19 @@ def parse(form_fill: object) -> list:
 
 def write_to_csv(data_list: list, file_name: str) -> None:
     """Запись в csv"""
-    df = pd.DataFrame(data_list,
-                      columns=[
-                          'Город/Регион',
-                          'ОГРН',
-                          'Дата присвоения',
-                          'ИНН',
-                          'КПП',
-                          'Директор',
-                          'Дата прекращения'
-                          ])
-    df.to_csv(file_name, index=False, encoding="utf-8", mode="a",
-              sep=",")
+    df = pd.DataFrame(
+        data_list,
+        columns=[
+            "Город/Регион",
+            "ОГРН",
+            "Дата присвоения",
+            "ИНН",
+            "КПП",
+            "Директор",
+            "Дата прекращения",
+        ],
+    )
+    df.to_csv(file_name, index=False, encoding="utf-8", mode="a", sep=",")
     p("Файл записан")
 
 
