@@ -7,9 +7,9 @@ from datetime import datetime as dt
 from print_bold_and_color_text import Color
 
 
-NUMBER = "01 декабря"
-TIME_HOUR = "00"
-DAY = "ВСК"
+NUMBER = "03 декабря"
+TIME_HOUR = "02"
+DAY = "ВТР"
 
 
 def p(*args) -> None:
