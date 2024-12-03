@@ -1,3 +1,5 @@
-Sun Dec  1 00:46:05 RTZ 2024
+Tue Dec  3 04:36:05 RTZ 2024
 
 ver1.0
+
+pylint_report and 1.py not needed
