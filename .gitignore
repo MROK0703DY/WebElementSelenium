@@ -1,0 +1,6 @@
+.idea/
+__pycache__/
+new/__pycache__/
+obrizan/__pycache__/
+obrizan/unittests/
+obrizan_dev/__pycache__/
