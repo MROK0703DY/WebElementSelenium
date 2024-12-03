@@ -1,4 +1,5 @@
 """Модуль вывода принта на печать."""
+
 import sys
 import time
 import datetime
@@ -6,9 +7,9 @@ from datetime import datetime as dt
 from print_bold_and_color_text import Color
 
 
-NUMBER = "03 декабря"
+NUMBER = "04 декабря"
 TIME_HOUR = "02"
-DAY = "ВТР"
+DAY = "СРД"
 
 
 def p(*args) -> None:
@@ -42,31 +43,38 @@ def get_date_two(NUMBER: str, TIME_HOUR: str, DAY: str) -> None:
     # print(formatted_time)
     p()
     ft = formatted_time.split()
-    p(f"get_date_two:   {Color.BOLD}{Color.GREEN}{NUMBER} {ft[0][6:]} {TIME_HOUR}{ft[1][2:]} {DAY}{Color.END}")
+    p(
+        f"get_date_two:   {Color.BOLD}{Color.GREEN}{NUMBER} {ft[0][6:]} {TIME_HOUR}{ft[1][2:]} {DAY}{Color.END}"
+    )
     p()
 
 
 def get_date_three() -> None:
     """Вывод на печать текущей даты и времени."""
-    d, ct = (str(dt.now()).split())
+    d, ct = str(dt.now()).split()
     d = d.split("-")
     d[1] = "декабря"
-    d = (list(reversed(d)))
-    d = ' '.join(d)
+    d = list(reversed(d))
+    d = " ".join(d)
     ct = ct.split(".")[0]
     t = ct.split(":")
     t[0] = str(int(t[0]))
-    t = ':'.join(t)
-    a_time = dt.now().strftime('%a')
+    t = ":".join(t)
+    a_time = dt.now().strftime("%a")
     p(f"get_date_three: {Color.BOLD}{Color.BLUE}{d} {t} {a_time}{Color.END}")
     p()
 
 
 def short_entry() -> None:
     """Вывод на печать текущей даты и времени."""
-    a_time = dt.now().strftime('%a')
+    a_time = dt.now().strftime("%a")
     current_time = str(dt.now()).split()[1].split(("."))[0] + " " + a_time
-    date = " ".join(["декабря" if x == "12" else x for x in ((str(dt.now()).split())[0].split("-")[::-1])])
+    date = " ".join(
+        [
+            "декабря" if x == "12" else x
+            for x in ((str(dt.now()).split())[0].split("-")[::-1])
+        ]
+    )
     p(f"short_entry:    {Color.BOLD}{Color.RED}{date} {current_time}{Color.END}")
     p()
 
