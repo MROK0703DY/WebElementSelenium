@@ -22,7 +22,7 @@ player = {
 
 class UpDateValueTest(TestCase):
     """Класс TestUpdateValue, наследующий от unittest TestCase, который содержит методы для
-       тестирования различных аспектов поведения класса UpdateValue."""
+    тестирования различных аспектов поведения класса UpdateValue."""
 
     def setUp(self) -> None:
         """Метод инициализации."""
