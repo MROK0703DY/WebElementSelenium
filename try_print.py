@@ -5,11 +5,7 @@ import time
 import datetime
 from datetime import datetime as dt
 from print_bold_and_color_text import Color
-
-
-NUMBER = "04 декабря"
-TIME_HOUR = "02"
-DAY = "СРД"
+from configuration import DAY, NUMBER, TIME_HOUR
 
 
 def p(*args) -> None:
