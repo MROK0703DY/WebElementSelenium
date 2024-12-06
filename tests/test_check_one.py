@@ -1,5 +1,7 @@
 """Модуль для тестирования check_one.py."""
 
+import pytest
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
@@ -9,8 +11,17 @@ from obrizan.home_page_ob import HomePage
 from obrizan.search_page_ob import SearchPage
 
 
-def test_open_home() -> None:
-    """Функция тестирования, без открытия браузера."""
+@pytest.mark.parametrize(
+    "query, expected_result",
+    [
+        ("samsung", "Samsung SyncMaster 941BW"),
+        ("macbook", "MacBook"),
+    ],
+)
+
+@pytest.fixture(scope="module")
+def create_and_open_a_browser():
+    """Фикстура для открытия браузера."""
     # Инициализация головного браузера
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
@@ -19,6 +30,10 @@ def test_open_home() -> None:
     driver = webdriver.Chrome(
         service=ChromeService(ChromeDriverManager().install()), options=options
     )
+
+def test_open_home(create_and_open_a_browser) -> None:
+    """Функция тестирования, без открытия браузера."""
+
     home_page = HomePage(driver)
     home_page.open()
 
@@ -30,16 +45,8 @@ def test_open_home() -> None:
     p("\nTest open_home good")
 
 
-def test_search_home() -> None:
+def test_search_home(create_and_open_a_browser) -> None:
     """Функция тестирования нажатия на кнопку, без открытия браузера."""
-    # Инициализация головного браузера
-    options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
-
-    # Создание экземпляра веб-драйвера
-    driver = webdriver.Chrome(
-        service=ChromeService(ChromeDriverManager().install()), options=options
-    )
 
     home_page = SearchPage(driver)
     home_page.open()
@@ -58,16 +65,8 @@ def test_search_home() -> None:
     p("\nTest search_home good")
 
 
-def test_search_page() -> None:
+def test_search_page(create_and_open_a_browser) -> None:
     """Функция тестирования поиска по критериям, без открытия браузера."""
-    # Инициализация головного браузера
-    options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
-
-    # Создание экземпляра веб-драйвера
-    driver = webdriver.Chrome(
-        service=ChromeService(ChromeDriverManager().install()), options=options
-    )
 
     search_on_page = SearchPage(driver)
     search_on_page.open()
