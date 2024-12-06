@@ -4,8 +4,8 @@ import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
-from home_page import HomePage
-from search_page import SearchPage
+from home_page_ob import HomePage
+from search_page_ob import SearchPage
 
 
 def p(*args) -> None:
@@ -54,7 +54,7 @@ def search_page() -> None:
 
 def main() -> None:
     """Основная функция. Точка входа в программу."""
-    search_page()
+    open_home()
     p("Тест окончен")
     p(27.50)
 
