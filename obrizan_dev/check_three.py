@@ -3,7 +3,7 @@
 import os
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
-from obrizan_dev.page_element import PageElement
+from tutorial.page_element import PageElement
 
 
 def test_click(driver: WebDriver) -> None:

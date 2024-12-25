@@ -14,7 +14,7 @@ def p(*args) -> None:
 
 
 def test() -> None:
-    """Открытие главной страницы и проверка на соответствие."""
+    """Открытие домашней страницы и проверка на соответствие."""
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     home_page = HomePage(driver)
     home_page.open()
